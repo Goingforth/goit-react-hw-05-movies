@@ -3,16 +3,22 @@ import { NavLink } from 'react-router-dom';
 export const NavMenu = styled.ul`
   display: flex;
   gap: 24px;
+  margin: 0;
+  padding-top: 12px;
+  padding-bottom: 18px;
+
+  border-bottom: 2px solid var(--botton-border);
+`;
+
+export const NavItem = styled.li`
   list-style-type: none;
 `;
 
-export const NavItem = styled.li``;
-
 export const StyledLink = styled(NavLink)`
-  color: black;
+  color: var(--black-color);
   text-decoration: none;
 
   &.active {
-    color: orange;
+    color: var(--active-color);
   }
 `;

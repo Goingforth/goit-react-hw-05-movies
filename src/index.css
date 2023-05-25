@@ -1,4 +1,11 @@
 @import-normalize; /* bring in normalize.css styles */
+:root {
+  --black-color: black;
+  --active-color: red;
+  --botton-border: #d3d3d3;
+  /* --button-border: #00ffff;
+  --button-color: #e0ffff; */
+}
 
 body {
   margin: 0;

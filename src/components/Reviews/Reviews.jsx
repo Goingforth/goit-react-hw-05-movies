@@ -1,8 +1,8 @@
 const Reviews = () => {
   return (
-    <main>
+    <div>
       <h1>Reviews page</h1>
-    </main>
+    </div>
   );
 };
 export default Reviews;

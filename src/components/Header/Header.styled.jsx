@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 export const NavMenu = styled.ul`
   display: flex;
   gap: 24px;
-  margin: 0;
+
+  padding-left: 24px;
   padding-top: 12px;
-  padding-bottom: 18px;
+  padding-bottom: 12px;
 
   border-bottom: 2px solid var(--botton-border);
 `;

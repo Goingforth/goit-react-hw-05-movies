@@ -3,6 +3,7 @@
   --black-color: black;
   --active-color: red;
   --botton-border: #d3d3d3;
+  --input-border: #4169e1;
   /* --button-border: #00ffff;
   --button-color: #e0ffff; */
 }
@@ -29,3 +30,8 @@ h4 {
   padding: 0;
   margin: 0;
 }
+
+/* ul,
+li {
+  list-style-type: none;
+} */

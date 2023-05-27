@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 export const BlokMovieDetails = styled.div`
   display: flex;
   margin-top: 12px;
@@ -18,7 +19,7 @@ export const Details = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 12px;
-
+  padding-bottom: 12px;
   list-style-type: none;
 `;
 
@@ -28,7 +29,7 @@ export const AdditionalInfo = styled.div`
   padding-left: 12px;
   border-bottom: 2px solid var(--botton-border);
 `;
-export const AdditionalInfoItem = styled.ul`
+export const AdditionalInfoItems = styled.ul`
   padding-top: 12px;
   padding-left: 24px;
 `;

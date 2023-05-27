@@ -16,8 +16,6 @@ export const TrendingList = styled.ul`
 
 export const TrendMovie = styled.li`
   list-style-type: none;
-
-  /* list-style-image: <TbMovie / >; */
   &::before {
     content: '🎦';
     padding-right: 12px;

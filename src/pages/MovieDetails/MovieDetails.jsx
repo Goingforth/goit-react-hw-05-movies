@@ -7,7 +7,7 @@ import {
   Poster,
   Details,
   AdditionalInfo,
-  AdditionalInfoItem,
+  AdditionalInfoItems,
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -79,14 +79,14 @@ const MovieDetails = () => {
       </BlokMovieDetails>
       <AdditionalInfo>
         <h4>Additional information</h4>
-        <AdditionalInfoItem>
+        <AdditionalInfoItems>
           <li>
             <Link to="cast">Cast</Link>
           </li>
           <li>
             <Link to="reviews">Reviews</Link>
           </li>
-        </AdditionalInfoItem>
+        </AdditionalInfoItems>
       </AdditionalInfo>
       <Outlet />
     </div>

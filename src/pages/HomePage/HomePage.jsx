@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import getData from 'service/API/getData';
 import { optionsTrendMovies } from 'service/API/options';
-import { Link } from 'react-router-dom';
-import { TrendingHeader, TrendingList, TrendMovie } from './Homepage.styled';
+
+import MoviesScroll from 'components/MoviesScroll/MoviesScroll';
+import { TrendingHeader } from './Homepage.styled';
 
 const HomePage = () => {
   const [trendFilms, setTrendFilms] = useState([]);
@@ -21,15 +22,7 @@ const HomePage = () => {
   return (
     <div>
       <TrendingHeader>Trending today</TrendingHeader>
-      <TrendingList>
-        {trendFilms.map(({ id, original_title }) => {
-          return (
-            <TrendMovie key={id}>
-              <Link to={`movies/${id}`}>{original_title}</Link>
-            </TrendMovie>
-          );
-        })}
-      </TrendingList>
+      <MoviesScroll arrayMovies={trendFilms} pathID={'movies/'} />
     </div>
   );
 };

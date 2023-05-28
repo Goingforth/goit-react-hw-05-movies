@@ -5,8 +5,9 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 import MovieDetails from 'pages/MovieDetails/MovieDetails';
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
-// import NotFound from 'pages/NotFound/NotFound';
-// import ProductDetails from 'pages/ProductDetails/ProductDetails';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const App = () => {
   return (
     <div>
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>
+      <ToastContainer autoClose={3000} theme={'colored'} />
     </div>
   );
 };

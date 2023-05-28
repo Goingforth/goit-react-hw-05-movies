@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import getData from 'service/API/getData';
 import { optionsMovieByID } from 'service/API/options';
 import {
@@ -9,6 +9,7 @@ import {
   AdditionalInfo,
   AdditionalInfoItems,
 } from './MovieDetails.styled';
+import noposter from '../../images/noposter.jpg';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -17,6 +18,9 @@ const MovieDetails = () => {
     // { id: 53, name: 'Thriller' },
     // { id: 80, name: 'Crime' },
   ]);
+  const location = useLocation();
+  const backLinklocationRef = useRef(location.state?.from ?? '/');
+
   // const [genresString, setGenresString] = useState('');
 
   useEffect(() => {
@@ -54,11 +58,17 @@ const MovieDetails = () => {
 
   return (
     <div>
+      <Link to={backLinklocationRef.current}>Go back</Link>
       <BlokMovieDetails>
-        <Poster
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-          alt={movie.title}
-        />
+        {movie.poster_path !== null ? (
+          <Poster
+            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            alt={movie.title}
+          />
+        ) : (
+          <Poster src={noposter} alt={movie.title} />
+        )}
+
         <Details>
           <li>
             <h2>{movie.original_title}</h2>

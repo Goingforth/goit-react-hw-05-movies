@@ -5,6 +5,7 @@ export const BlokMovieDetails = styled.div`
   margin-top: 12px;
 
   border-bottom: 2px solid var(--botton-border);
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
 `;
 export const Poster = styled.img`
   max-width: 260px;
@@ -28,6 +29,7 @@ export const AdditionalInfo = styled.div`
   padding-bottom: 12px;
   padding-left: 12px;
   border-bottom: 2px solid var(--botton-border);
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
 `;
 export const AdditionalInfoItems = styled.ul`
   padding-top: 12px;

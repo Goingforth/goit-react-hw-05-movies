@@ -24,26 +24,57 @@ const Cast = () => {
 
   return (
     <BlokCast>
-      {consistPerformers.map(
-        ({ id, original_name, profile_path, character }) => {
-          return (
-            <GalleryCast key={id}>
-              {profile_path !== null ? (
-                <Profile
-                  src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
-                  alt={original_name}
-                />
-              ) : (
-                <Profile src={noimage} alt={original_name} />
-              )}
+      {consistPerformers.length > 0 ? (
+        <div>
+          {consistPerformers.map(
+            ({ id, original_name, profile_path, character }) => {
+              return (
+                <GalleryCast key={id}>
+                  {profile_path !== null ? (
+                    <Profile
+                      src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+                      alt={original_name}
+                    />
+                  ) : (
+                    <Profile src={noimage} alt={original_name} />
+                  )}
 
-              <li>{original_name}</li>
-              <p>Character: {character}</p>
-            </GalleryCast>
-          );
-        }
+                  <li>{original_name}</li>
+                  <p>Character: {character}</p>
+                </GalleryCast>
+              );
+            }
+          )}
+        </div>
+      ) : (
+        <div>
+          <h2>We don't have cast for this movie.</h2>
+        </div>
       )}
     </BlokCast>
   );
+
+  ////////////////////////////////
 };
 export default Cast;
+// return (
+//   <BlokCast>
+//     {consistPerformers.map(({ id, original_name, profile_path, character }) => {
+//       return (
+//         <GalleryCast key={id}>
+//           {profile_path !== null ? (
+//             <Profile
+//               src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+//               alt={original_name}
+//             />
+//           ) : (
+//             <Profile src={noimage} alt={original_name} />
+//           )}
+
+//           <li>{original_name}</li>
+//           <p>Character: {character}</p>
+//         </GalleryCast>
+//       );
+//     })}
+//   </BlokCast>
+// );

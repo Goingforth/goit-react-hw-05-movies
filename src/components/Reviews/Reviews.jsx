@@ -19,7 +19,8 @@ const Reviews = () => {
   return (
     <BlockReviews>
       {reviewsInfo.length > 0 ? (
-        <BlockReviews>
+        // <BlockReviews>
+        <div>
           {reviewsInfo.map(({ id, author, content }) => {
             return (
               <BlockReview key={id}>
@@ -30,8 +31,9 @@ const Reviews = () => {
               </BlockReview>
             );
           })}
-        </BlockReviews>
+        </div>
       ) : (
+        // </BlockReviews>
         <div>
           <h2>We don't have reviews for this movie.</h2>
         </div>

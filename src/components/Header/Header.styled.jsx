@@ -9,6 +9,7 @@ export const NavMenu = styled.ul`
   padding-bottom: 12px;
 
   border-bottom: 2px solid var(--botton-border);
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
 `;
 
 export const NavItem = styled.li`

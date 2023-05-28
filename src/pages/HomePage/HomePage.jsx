@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import getData from 'service/API/getData';
 import { optionsTrendMovies } from 'service/API/options';
 
@@ -7,6 +8,7 @@ import { TrendingHeader } from './Homepage.styled';
 
 const HomePage = () => {
   const [trendFilms, setTrendFilms] = useState([]);
+  const location = useLocation();
   useEffect(() => {
     getData(optionsTrendMovies)
       .then(films => films.results)
@@ -22,7 +24,11 @@ const HomePage = () => {
   return (
     <div>
       <TrendingHeader>Trending today</TrendingHeader>
-      <MoviesScroll arrayMovies={trendFilms} pathID={'movies/'} />
+      <MoviesScroll
+        arrayMovies={trendFilms}
+        pathID={'movies/'}
+        location={location}
+      />
     </div>
   );
 };

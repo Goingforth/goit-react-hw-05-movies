@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import getData from 'service/API/getData';
 import { optionsSearchQuery } from 'service/API/options';
 import { toast } from 'react-toastify';
@@ -8,6 +9,7 @@ import { FormSearch, FormInput, FormButton } from './Movies.styled';
 const Movies = () => {
   const [query, setQuery] = useState('');
   const [filmsByQuery, setFilmsByQuery] = useState([]);
+  const location = useLocation();
   useEffect(() => {
     getData(optionsSearchQuery(query))
       .then(films => films.results)
@@ -19,6 +21,7 @@ const Movies = () => {
       )
       .then(films => setFilmsByQuery(films));
   }, [query]);
+
   const handleSubmit = evt => {
     evt.preventDefault();
     const form = evt.currentTarget;
@@ -43,7 +46,11 @@ const Movies = () => {
 
         <FormButton type="submit">Search</FormButton>
       </FormSearch>
-      <MoviesScroll arrayMovies={filmsByQuery} pathID={''} />
+      <MoviesScroll
+        arrayMovies={filmsByQuery}
+        pathID={''}
+        location={location}
+      />
     </div>
   );
 };

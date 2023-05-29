@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const BlokMovieDetails = styled.div`
   display: flex;
@@ -34,4 +35,27 @@ export const AdditionalInfo = styled.div`
 export const AdditionalInfoItems = styled.ul`
   padding-top: 12px;
   padding-left: 24px;
+`;
+
+export const ButtonGoBack = styled.div`
+  margin: 14px;
+`;
+
+export const LinkGoBack = styled(NavLink)`
+  /* color: var(--black-color); */
+
+  padding: 4px 10px;
+
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 10px;
+
+  background-color: var(--lightgrey-color);
+
+  &:hover,
+  &:focus {
+    color: var(--blue-color);
+    background-color: var(--buttonGoBack-color);
+    cursor: pointer;
+  }
 `;

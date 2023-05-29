@@ -1,26 +1,26 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
-
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import getData from 'service/API/getData';
 import { optionsSearchQuery } from 'service/API/options';
-
 import { toast } from 'react-toastify';
-
 import MoviesScroll from 'components/MoviesScroll/MoviesScroll';
-import { FormSearch, FormInput, FormButton } from './Movies.styled';
 
+import { FormSearch, FormInput, FormButton } from './Movies.styled';
 const Movies = () => {
+  const [query, setQuery] = useState('');
   const [filmsByQuery, setFilmsByQuery] = useState([]);
   const location = useLocation();
-
-  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const querySaved = searchParams.get('query');
+  console.log(querySaved);
+  console.log(query);
 
   useEffect(() => {
-    if (querySaved === null) {
+    if (query === null) {
       return;
     }
-    getData(optionsSearchQuery(querySaved))
+    getData(optionsSearchQuery(query))
       .then(films => films.results)
       .then(films =>
         films.map(({ id, original_title }) => ({
@@ -29,7 +29,9 @@ const Movies = () => {
         }))
       )
       .then(films => setFilmsByQuery(films));
-  }, [querySaved]);
+    // .then(setQuery(querySaved));
+    //}, [query, querySaved]);
+  }, [query]);
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -39,7 +41,8 @@ const Movies = () => {
       toast.error('Please enter a search topic !');
       return;
     }
-    setSearchParams({ query: query });
+    setQuery(query);
+    navigate(`?query=${query}`);
     form.reset();
   };
   return (

@@ -1,11 +1,12 @@
 @import-normalize; /* bring in normalize.css styles */
 :root {
   --black-color: black;
+  --blue-color: #0000ff;
+  --lightgrey-color: #d3d3d3;
+  --buttonGoBack-color: #f5f5f5;
   --active-color: red;
   --botton-border: #d3d3d3;
   --input-border: #4169e1;
-  /* --button-border: #00ffff;
-  --button-color: #e0ffff; */
 }
 
 body {

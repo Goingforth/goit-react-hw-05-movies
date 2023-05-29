@@ -8,6 +8,8 @@ import {
   Details,
   AdditionalInfo,
   AdditionalInfoItems,
+  LinkGoBack,
+  ButtonGoBack,
 } from './MovieDetails.styled';
 import noposter from '../../images/noposter.jpg';
 
@@ -58,7 +60,15 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <Link to={backLinklocationRef.current}>Go back</Link>
+      <ButtonGoBack>
+        <LinkGoBack to={backLinklocationRef.current}>
+          &#8656; Go back
+        </LinkGoBack>
+      </ButtonGoBack>
+
+      {/* <Link to={backLinklocationRef.current}>
+        <ButtonGoBack>Go back</ButtonGoBack>
+      </Link> */}
       <BlokMovieDetails>
         {movie.poster_path !== null ? (
           <Poster

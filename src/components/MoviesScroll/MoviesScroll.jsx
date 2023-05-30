@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { MovieLink, MoviesList } from './MoviesScroll.styled';
 const MoviesScroll = ({ arrayMovies, pathID, location }) => {
   return (
@@ -16,3 +17,7 @@ const MoviesScroll = ({ arrayMovies, pathID, location }) => {
   );
 };
 export default MoviesScroll;
+MoviesScroll.propTypes = {
+  id: PropTypes.number,
+  original_title: PropTypes.string,
+};

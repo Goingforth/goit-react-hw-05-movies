@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import getData from 'service/API/getData';
 import { optionsCastByID } from 'service/API/options';
 import { BlokCast, GalleryCast, Profile } from './Cast.styled';
-// import noimage from '../../images/noimage.jpg';
 import noimage from '../../images/noimg.png';
 const Cast = () => {
   const { movieId } = useParams();
@@ -53,10 +53,15 @@ const Cast = () => {
       )}
     </BlokCast>
   );
-
-  ////////////////////////////////
 };
 export default Cast;
+
+Cast.propTypes = {
+  id: PropTypes.number,
+  original_name: PropTypes.string,
+  profile_path: PropTypes.string,
+  character: PropTypes.string,
+};
 // return (
 //   <BlokCast>
 //     {consistPerformers.map(({ id, original_name, profile_path, character }) => {

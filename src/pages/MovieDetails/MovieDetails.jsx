@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, Suspense } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import getData from 'service/API/getData';
 import { optionsMovieByID } from 'service/API/options';
 import {
@@ -22,8 +23,6 @@ const MovieDetails = () => {
   ]);
   const location = useLocation();
   const backLinklocationRef = useRef(location.state?.from ?? '/');
-
-  // const [genresString, setGenresString] = useState('');
 
   useEffect(() => {
     getData(optionsMovieByID(movieId)).then(
@@ -115,3 +114,11 @@ const MovieDetails = () => {
   );
 };
 export default MovieDetails;
+MovieDetails.propTypes = {
+  poster_path: PropTypes.string,
+  original_title: PropTypes.string,
+  title: PropTypes.string,
+  overview: PropTypes.string,
+  genres: PropTypes.array,
+  popularity: PropTypes.number,
+};

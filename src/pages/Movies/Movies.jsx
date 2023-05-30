@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import getData from 'service/API/getData';
 import { optionsSearchQuery } from 'service/API/options';
@@ -64,3 +65,7 @@ const Movies = () => {
   );
 };
 export default Movies;
+Movies.propTypes = {
+  id: PropTypes.number,
+  original_title: PropTypes.string,
+};

@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import getData from 'service/API/getData';
 import { optionsReviewsByID } from 'service/API/options';
 import { BlockReviews, BlockReview } from './Reviews.styled';
@@ -19,7 +20,6 @@ const Reviews = () => {
   return (
     <BlockReviews>
       {reviewsInfo.length > 0 ? (
-        // <BlockReviews>
         <div>
           {reviewsInfo.map(({ id, author, content }) => {
             return (
@@ -33,7 +33,6 @@ const Reviews = () => {
           })}
         </div>
       ) : (
-        // </BlockReviews>
         <div>
           <h2>We don't have reviews for this movie.</h2>
         </div>
@@ -42,3 +41,8 @@ const Reviews = () => {
   );
 };
 export default Reviews;
+Reviews.propTypes = {
+  id: PropTypes.number,
+  author: PropTypes.string,
+  content: PropTypes.string,
+};

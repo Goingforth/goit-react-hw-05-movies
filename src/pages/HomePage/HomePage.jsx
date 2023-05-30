@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import getData from 'service/API/getData';
 import { optionsTrendMovies } from 'service/API/options';
 
@@ -33,3 +34,7 @@ const HomePage = () => {
   );
 };
 export default HomePage;
+HomePage.propTypes = {
+  id: PropTypes.number,
+  original_title: PropTypes.string,
+};

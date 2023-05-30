@@ -3,6 +3,7 @@ import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import getData from 'service/API/getData';
 import { optionsMovieByID } from 'service/API/options';
+import arrayNameToString from 'service/API/arrayNameToString';
 import {
   BlokMovieDetails,
   Poster,
@@ -16,11 +17,7 @@ import noposter from '../../images/noposter.jpg';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState([
-    // { id: 28, name: 'Action' },
-    // { id: 53, name: 'Thriller' },
-    // { id: 80, name: 'Crime' },
-  ]);
+  const [movie, setMovie] = useState([]);
   const location = useLocation();
   const backLinklocationRef = useRef(location.state?.from ?? '/');
 
@@ -44,19 +41,10 @@ const MovieDetails = () => {
         });
       }
     );
-    //.then(() => (genresData = movie.genres));
   }, [movieId]);
 
-  // const genrisData = () => {
-  //   let tempGenres = [];
-  //   movie.genres.forEach(genre => {
-  //     tempGenres.push(genre.name);
-  //   });
-  //   let tempGenresString = tempGenres.join(', ');
-  //   return tempGenresString;
-  // };
-  // console.log(genrisData());
-
+  const { poster_path, original_title, title, overview, genres, popularity } =
+    movie;
   return (
     <div>
       <ButtonGoBack>
@@ -65,35 +53,32 @@ const MovieDetails = () => {
         </LinkGoBack>
       </ButtonGoBack>
 
-      {/* <Link to={backLinklocationRef.current}>
-        <ButtonGoBack>Go back</ButtonGoBack>
-      </Link> */}
       <BlokMovieDetails>
         {movie.poster_path !== null ? (
           <Poster
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            alt={movie.title}
+            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+            alt={title}
           />
         ) : (
-          <Poster src={noposter} alt={movie.title} />
+          <Poster src={noposter} alt={title} />
         )}
 
         <Details>
           <li>
-            <h2>{movie.original_title}</h2>
+            <h2>{original_title}</h2>
           </li>
           <li>
             <h4>Popularity </h4>
           </li>
-          <li>{movie.popularity}</li>
+          <li>{popularity}</li>
           <li>
             <h4>Overview</h4>
           </li>
-          <li>{movie.overview}</li>
+          <li>{overview}</li>
           <li>
             <h4>Genres</h4>
           </li>
-          <li>genrisData</li>
+          <li>{arrayNameToString(genres)}</li>
         </Details>
       </BlokMovieDetails>
       <AdditionalInfo>

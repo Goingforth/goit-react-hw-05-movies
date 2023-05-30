@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, Suspense } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import getData from 'service/API/getData';
 import { optionsMovieByID } from 'service/API/options';
@@ -108,7 +108,9 @@ const MovieDetails = () => {
           </li>
         </AdditionalInfoItems>
       </AdditionalInfo>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

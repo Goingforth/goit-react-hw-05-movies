@@ -5,9 +5,11 @@ import getData from 'service/API/getData';
 import { optionsCastByID } from 'service/API/options';
 import { BlokCast, GalleryCast, Profile } from './Cast.styled';
 import noimage from '../../images/noimg.png';
+
 const Cast = () => {
   const { movieId } = useParams();
   const [consistPerformers, setConsistPerformers] = useState([]);
+
   useEffect(() => {
     getData(optionsCastByID(movieId))
       .then(cast => cast.cast)
@@ -38,8 +40,16 @@ const Cast = () => {
                   ) : (
                     <Profile src={noimage} alt={original_name} />
                   )}
-
-                  <li>{original_name}</li>
+                  <li>
+                    <a
+                      href={`https://en.wikipedia.org/wiki/${original_name}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {original_name}
+                    </a>
+                  </li>
+                  {/* <li>{original_name}</li> */}
                   <p>Character: {character}</p>
                 </GalleryCast>
               );
